@@ -94,9 +94,9 @@ async function run() {
     //sslcommerz init
     app.post("/init", async (req, res) => {
       const data = {
-        total_amount: req.body.price,
-        startDate: req.body.startDate,
-        endDate: req.body.endDate,
+        total_amount: req.body?.price,
+        startDate: req.body?.startDate,
+        endDate: req.body?.endDate,
         currency: "BDT",
         tran_id: "REF123",
         success_url: "https://cht-travel-server.onrender.com/success",
@@ -108,7 +108,7 @@ async function run() {
         product_category: "Electronic",
         product_profile: "general",
         cus_name: req.body?.name,
-        cus_email: req.body.email,
+        cus_email: req.body?.email,
         cus_add1: req.body?.city,
         cus_add2: "Dhaka",
         cus_city: "Dhaka",
@@ -216,7 +216,7 @@ async function run() {
     //   await client.close();
   }
 }
-run().catch(console.dir);
+run().catch(console.error);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
